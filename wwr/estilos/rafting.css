@@ -21,6 +21,11 @@ body {
     background-color: var(--cor-fundo);
 }
 
+section {
+    background-color: var(--cor-secundaria);
+    padding: 20px;
+}
+
 header,
 main,
 footer {
