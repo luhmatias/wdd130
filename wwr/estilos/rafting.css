@@ -23,10 +23,6 @@ body {
     line-height: 1.5;
 }
 
-/* =========================
-   ESTRUTURA
-   ========================= */
-
 header,
 main,
 footer {
@@ -34,16 +30,13 @@ footer {
     margin: 0 auto;
 }
 
-/* =========================
-   CABEÇALHO
-   ========================= */
-
 header {
     display: grid;
     grid-template-columns: 150px 1fr;
     align-items: center;
     background-color: var(--cor-primaria);
     padding: 10px;
+    color: var(--cor-branco);
 }
 
 header > img {
@@ -51,10 +44,6 @@ header > img {
     height: 80px;
     object-fit: cover;
 }
-
-/* =========================
-   NAVEGAÇÃO
-   ========================= */
 
 header nav {
     display: flex;
@@ -70,12 +59,9 @@ header nav a {
 }
 
 header nav a:hover {
-    color: var(--cor-destaque2);
+    color: var(--cor-branco);
+    text-decoration: underline;
 }
-
-/* =========================
-   HERO
-   ========================= */
 
 .hero {
     position: relative;
@@ -113,30 +99,18 @@ header nav a:hover {
     color: var(--cor-destaque1);
 }
 
-/* =========================
-   TÍTULOS
-   ========================= */
-
 h2 {
     font-family: var(--fonte-titulo);
-    color: var(--cor-primaria);
+    color: var(--cor-destaque1);
     text-align: center;
     margin-bottom: 20px;
 }
-
-/* =========================
-   SEÇÕES
-   ========================= */
 
 section {
     margin-top: 20px;
     padding: 30px;
     background-color: var(--cor-branco);
 }
-
-/* =========================
-   HISTÓRIA
-   ========================= */
 
 .historia {
     display: grid;
@@ -158,10 +132,6 @@ section {
     height: 200px;
     object-fit: cover;
 }
-
-/* =========================
-   AVENTURAS
-   ========================= */
 
 .aventuras {
     background-color: var(--cor-secundaria);
@@ -189,10 +159,6 @@ section {
     font-weight: bold;
     color: var(--cor-destaque1);
 }
-
-/* =========================
-   RODAPÉ
-   ========================= */
 
 footer {
     display: flex;
