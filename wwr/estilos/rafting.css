@@ -1,3 +1,4 @@
+```css
 :root {
     --cor-primaria: #006d77;
     --cor-secundaria: #83c5be;
@@ -86,7 +87,7 @@ header nav a:hover {
     height: auto;
 }
 
-h1 {
+.hero h1 {
     position: absolute;
     top: 20px;
     left: 0;
@@ -131,32 +132,38 @@ h2 {
 }
 
 /* =========================
+   SEÇÕES
+   ========================= */
+
+section {
+    margin-top: 20px;
+    padding: 30px;
+    background-color: white;
+}
+
+/* =========================
    HISTÓRIA
    ========================= */
 
 .historia {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 20px;
+    gap: 30px;
+    align-items: center;
+}
 
-    margin-top: 20px;
-    padding: 30px;
+.historia h2 {
+    grid-column: 1 / -1;
+}
 
-    background-color: white;
+.historia p {
+    margin: 0;
 }
 
 .historia img {
     width: 100%;
-    height: 180px;
+    height: 200px;
     object-fit: cover;
-}
-
-.historia div {
-    padding: 10px;
-}
-
-.historia p {
-    margin-bottom: 15px;
 }
 
 /* =========================
@@ -164,9 +171,7 @@ h2 {
    ========================= */
 
 .aventuras {
-    margin-top: 20px;
-    padding: 30px;
-    background-color: white;
+    background-color: var(--cor-secundaria);
 }
 
 .galeria {
@@ -212,18 +217,21 @@ footer p {
     margin: 0;
 }
 
-footer .redes-sociais {
+footer .socialmedia {
     display: flex;
+    justify-content: flex-end;
+    align-items: center;
     gap: 10px;
     margin-left: auto;
 }
 
-footer .redes-sociais a {
+footer .socialmedia a {
     text-decoration: none;
 }
 
-footer .redes-sociais img {
+footer .socialmedia img {
     width: 35px;
     height: 35px;
     object-fit: contain;
 }
+```
