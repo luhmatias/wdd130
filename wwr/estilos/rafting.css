@@ -61,6 +61,7 @@ header nav a {
 header nav a:hover {
     color: var(--cor-branco);
     text-decoration: underline;
+    text-decoration-color: var(--cor-destaque2);
 }
 
 .hero {
