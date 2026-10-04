@@ -6,6 +6,9 @@
     --cor-fundo: #edf6f9;
     --cor-branco: #ffffff;
 
+    --cor-hero: rgba(2, 48, 71, 0.8);
+    --cor-artigo: rgba(255, 255, 255, 0.85);
+
     --fonte-titulo: Georgia, "Times New Roman", serif;
     --fonte-body: Arial, Helvetica, sans-serif;
 }
@@ -84,7 +87,7 @@ header nav a:hover {
     font-family: var(--fonte-titulo);
     text-align: center;
 
-    background-color: rgba(2, 48, 71, 0.8);
+    background-color: var(--cor-hero);
     color: var(--cor-branco);
 }
 
@@ -96,8 +99,16 @@ header nav a:hover {
     width: 80%;
     padding: 20px;
 
-    background-color: rgba(255, 255, 255, 0.85);
+    background-color: var(--cor-artigo);
     color: var(--cor-destaque1);
+}
+
+.hero article img {
+    width: 120px;
+    height: 100px;
+    object-fit: cover;
+    float: left;
+    margin-right: 15px;
 }
 
 h2 {
@@ -160,6 +171,145 @@ section {
     font-weight: bold;
     color: var(--cor-destaque1);
 }
+
+
+/* =========================
+   PÁGINA FALE CONOSCO
+   ========================= */
+
+.contato {
+    background-color: var(--cor-branco);
+}
+
+.informacoes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 25px;
+}
+
+.informacoes div {
+    padding: 20px;
+    background-color: var(--cor-fundo);
+}
+
+.informacoes h3 {
+    font-family: var(--fonte-titulo);
+    color: var(--cor-destaque1);
+    margin-bottom: 8px;
+}
+
+.informacoes p {
+    margin-bottom: 5px;
+}
+
+.mapa {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.mapa iframe {
+    display: block;
+    width: 100%;
+    height: 300px;
+    border: 0;
+}
+
+.formulario {
+    background-color: var(--cor-secundaria);
+}
+
+.formulario form {
+    display: grid;
+    gap: 10px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.formulario label {
+    font-weight: bold;
+    color: var(--cor-destaque1);
+}
+
+.formulario input,
+.formulario select,
+.formulario textarea {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid var(--cor-destaque1);
+    border-radius: 4px;
+    background-color: var(--cor-branco);
+    color: var(--cor-destaque1);
+    font-family: var(--fonte-body);
+    font-size: 1rem;
+}
+
+.formulario textarea {
+    resize: vertical;
+}
+
+.formulario .newsletter {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+    font-weight: normal;
+}
+
+.formulario .newsletter input {
+    width: auto;
+}
+
+.formulario button {
+    width: fit-content;
+    margin: 10px auto 0;
+    padding: 12px 25px;
+    border: 2px solid var(--cor-destaque1);
+    border-radius: 4px;
+    background-color: var(--cor-destaque1);
+    color: var(--cor-branco);
+    font-family: var(--fonte-body);
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.formulario button:hover {
+    background-color: var(--cor-primaria);
+    border-color: var(--cor-primaria);
+}
+
+.equipe {
+    background-color: var(--cor-branco);
+}
+
+.equipe-galeria {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.equipe-galeria figure {
+    text-align: center;
+}
+
+.equipe-galeria img {
+    display: block;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.equipe-galeria figcaption {
+    padding-top: 10px;
+    font-weight: bold;
+    color: var(--cor-destaque1);
+}
+
+
+/* =========================
+   RODAPÉ
+   ========================= */
 
 footer {
     display: flex;
