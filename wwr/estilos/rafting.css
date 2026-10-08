@@ -327,7 +327,7 @@ footer p {
     margin: 0;
 }
 
-footer .socialmedia {
+footer .redes-sociais {
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -335,11 +335,11 @@ footer .socialmedia {
     margin-left: auto;
 }
 
-footer .socialmedia a {
+footer .redes-sociais a {
     text-decoration: none;
 }
 
-footer .socialmedia img {
+footer .redes-sociais img {
     width: 35px;
     height: 35px;
     object-fit: contain;
