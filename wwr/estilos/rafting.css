@@ -1,4 +1,4 @@
-```css
+
 /* =========================
    VARIÁVEIS E CONFIGURAÇÕES
    ========================= */
@@ -16,6 +16,10 @@
     --fonte-titulo: Georgia, "Times New Roman", serif;
     --fonte-body: Arial, Helvetica, sans-serif;
 }
+
+/* =========================
+   CONFIGURAÇÕES GERAIS
+   ========================= */
 
 * {
     margin: 0;
@@ -52,6 +56,10 @@ h2 {
     margin-bottom: 20px;
 }
 
+h3 {
+    color: var(--cor-destaque1);
+}
+
 p {
     margin-bottom: 12px;
 }
@@ -82,6 +90,12 @@ footer {
 
 main {
     background-color: var(--cor-fundo);
+}
+
+section {
+    margin-top: 20px;
+    padding: 30px;
+    background-color: var(--cor-branco);
 }
 
 /* =========================
@@ -147,6 +161,7 @@ header nav a:hover {
     position: absolute;
     top: 25px;
     left: 0;
+    z-index: 2;
     width: 100%;
     padding: 18px;
     background-color: var(--cor-hero);
@@ -159,11 +174,17 @@ header nav a:hover {
     position: absolute;
     left: 5%;
     bottom: 25px;
+    z-index: 1;
     width: 80%;
     padding: 20px;
     background-color: var(--cor-artigo);
     color: var(--cor-destaque1);
     border-radius: 5px;
+}
+
+.hero article h2 {
+    text-align: left;
+    margin-bottom: 10px;
 }
 
 .hero article img {
@@ -181,12 +202,6 @@ header nav a:hover {
 /* =========================
    PÁGINA SOBRE NÓS
    ========================= */
-
-section {
-    margin-top: 20px;
-    padding: 30px;
-    background-color: var(--cor-branco);
-}
 
 .historia {
     display: grid;
@@ -243,42 +258,68 @@ section {
    PÁGINA INICIAL DO RAFTING
    ========================= */
 
-.newsletter {
-    padding: 30px;
-    background-color: var(--cor-branco);
+.apresentacao {
+    text-align: center;
 }
 
-.newsletter h2 {
+.apresentacao p {
+    max-width: 800px;
+    margin: 0 auto 12px;
+}
+
+.destaques {
+    background-color: var(--cor-fundo);
+}
+
+.destaques > h2 {
+    margin-bottom: 25px;
+}
+
+.cartoes {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.cartoes article,
+.destaques article {
+    min-width: 0;
+    padding: 20px;
+    background-color: var(--cor-branco);
+    border-radius: 5px;
+}
+
+.cartoes h3,
+.destaques h3 {
     margin-bottom: 10px;
 }
 
-.newsletter form {
-    display: grid;
-    grid-template-columns: 1fr 1fr auto;
-    align-items: end;
-    gap: 15px;
+.cartoes p,
+.destaques p {
+    margin-bottom: 0;
 }
 
-.newsletter label,
-.formulario label {
+.destaques img {
     display: block;
-    font-weight: bold;
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    margin-bottom: 15px;
 }
 
-.newsletter input,
-.formulario input,
-.formulario select,
-.formulario textarea {
-    width: 100%;
-    min-width: 0;
-    padding: 10px;
-    border: 2px solid var(--cor-destaque1);
-    border-radius: 4px;
-    background-color: var(--cor-branco);
-    color: var(--cor-destaque1);
-    font-family: var(--fonte-body);
-    font-size: 1rem;
+.chamada {
+    padding: 35px 20px;
+    text-align: center;
+    background-color: var(--cor-secundaria);
 }
+
+.chamada p {
+    margin-bottom: 20px;
+}
+
+/* =========================
+   BOTÕES
+   ========================= */
 
 .newsletter button,
 .formulario button,
@@ -286,6 +327,7 @@ section {
 a.botao {
     display: inline-block;
     width: fit-content;
+    max-width: 100%;
     padding: 12px 20px;
     border: 2px solid var(--cor-destaque1);
     border-radius: 4px;
@@ -307,39 +349,50 @@ a.botao:hover {
     border-color: var(--cor-primaria);
 }
 
-.chamada {
-    padding: 35px 20px;
-    text-align: center;
-    background-color: var(--cor-secundaria);
-}
+/* =========================
+   NEWSLETTER
+   ========================= */
 
-.chamada p {
-    margin-bottom: 20px;
-}
-
-.destaques {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 25px;
-}
-
-.destaques article {
-    padding: 20px;
+.newsletter {
+    padding: 30px;
     background-color: var(--cor-branco);
-    border-radius: 5px;
 }
 
-.destaques img {
-    display: block;
-    width: 100%;
-    height: 240px;
-    object-fit: cover;
-    margin-bottom: 15px;
-}
-
-.destaques h3 {
+.newsletter h2 {
     margin-bottom: 10px;
+}
+
+.newsletter form {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto;
+    align-items: end;
+    gap: 15px;
+}
+
+.newsletter label {
+    display: block;
+    font-weight: bold;
+}
+
+.newsletter input,
+.formulario input,
+.formulario select,
+.formulario textarea {
+    width: 100%;
+    min-width: 0;
+    padding: 10px;
+    border: 2px solid var(--cor-destaque1);
+    border-radius: 4px;
+    background-color: var(--cor-branco);
     color: var(--cor-destaque1);
+    font-family: var(--fonte-body);
+    font-size: 1rem;
+}
+
+.newsletter input[type="checkbox"],
+.formulario input[type="checkbox"],
+.formulario input[type="radio"] {
+    width: auto;
 }
 
 /* =========================
@@ -425,7 +478,7 @@ a.botao:hover {
     margin-bottom: 25px;
 }
 
-.informacoes div {
+.informacoes > div {
     min-width: 0;
     padding: 20px;
     background-color: var(--cor-fundo);
@@ -433,11 +486,11 @@ a.botao:hover {
 
 .informacoes h3 {
     margin-bottom: 8px;
-    color: var(--cor-destaque1);
 }
 
 .informacoes p {
     margin-bottom: 5px;
+    overflow-wrap: anywhere;
 }
 
 .mapa {
@@ -463,6 +516,11 @@ a.botao:hover {
     margin: 0 auto;
 }
 
+.formulario label {
+    display: block;
+    font-weight: bold;
+}
+
 .formulario fieldset {
     min-width: 0;
     padding: 15px;
@@ -475,6 +533,7 @@ a.botao:hover {
     font-weight: bold;
 }
 
+.formulario fieldset label,
 .formulario .opcao-radio {
     display: flex;
     align-items: center;
@@ -483,20 +542,27 @@ a.botao:hover {
     font-weight: normal;
 }
 
+.formulario fieldset input[type="radio"],
 .formulario .opcao-radio input {
+    flex: 0 0 auto;
     width: auto;
+    margin: 0;
 }
 
 .formulario .newsletter {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 8px;
     margin-top: 5px;
+    padding: 0;
+    background: transparent;
     font-weight: normal;
 }
 
-.formulario .newsletter input {
+.formulario .newsletter input[type="checkbox"] {
+    flex: 0 0 auto;
     width: auto;
+    margin: 5px 0 0;
 }
 
 .formulario textarea {
@@ -506,6 +572,10 @@ a.botao:hover {
 .formulario button {
     margin: 10px auto 0;
 }
+
+/* =========================
+   EQUIPE
+   ========================= */
 
 .equipe {
     background-color: var(--cor-branco);
@@ -580,7 +650,7 @@ footer .redes-sociais img {
 }
 
 /* =========================
-   RESPONSIVIDADE
+   TABLETS
    ========================= */
 
 @media (max-width: 900px) {
@@ -602,6 +672,10 @@ footer .redes-sociais img {
         height: 400px;
     }
 }
+
+/* =========================
+   CELULARES
+   ========================= */
 
 @media (max-width: 600px) {
     header {
@@ -625,6 +699,7 @@ footer .redes-sociais img {
     .hero h1 {
         top: 10px;
         padding: 12px;
+        font-size: 1.6rem;
     }
 
     .hero article {
@@ -633,6 +708,10 @@ footer .redes-sociais img {
         width: 90%;
         padding: 12px;
         font-size: 0.9rem;
+    }
+
+    .hero article h2 {
+        font-size: 1.15rem;
     }
 
     .hero article img {
@@ -647,11 +726,15 @@ footer .redes-sociais img {
     }
 
     .historia,
-    .destaques,
+    .cartoes,
     .informacoes,
     .lista-passeios,
     .equipe-galeria {
         grid-template-columns: 1fr;
+    }
+
+    .historia h2 {
+        grid-column: auto;
     }
 
     .galeria {
@@ -687,4 +770,3 @@ footer .redes-sociais img {
         margin-left: 0;
     }
 }
-```
