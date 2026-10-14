@@ -1,4 +1,4 @@
-
+```css
 /* ========================================
    1. VARIÁVEIS E CONFIGURAÇÕES GERAIS
 ======================================== */
@@ -24,20 +24,18 @@
     padding: 0;
 }
 
-
 html {
     min-height: 100%;
-    background-color: #edf6f9;
+    background-color: var(--cor-fundo);
 }
 
 body {
     min-height: 100vh;
-    margin: 0;
     font-family: var(--fonte-body);
     font-size: 16px;
     line-height: 1.6;
     color: var(--cor-destaque1);
-    background-color: #edf6f9;
+    background-color: var(--cor-fundo);
 }
 
 main {
@@ -45,9 +43,8 @@ main {
     min-height: 100vh;
     margin: 0 auto;
     padding-bottom: 20px;
-    background-color: #edf6f9;
+    background-color: var(--cor-fundo);
 }
-
 
 h1,
 h2,
@@ -380,14 +377,23 @@ button[type="submit"]:hover {
     color: var(--cor-primaria);
 }
 
+.passeios-intro p {
+    max-width: 900px;
+}
+
 .lista-passeios {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: stretch;
     gap: 22px;
+    padding: 0;
+    margin-top: 20px;
     background-color: transparent;
 }
 
 .passeio {
+    min-width: 0;
+    height: 100%;
     padding: 20px;
     background-color: var(--cor-branco);
     border-radius: 8px;
@@ -412,14 +418,15 @@ button[type="submit"]:hover {
 }
 
 .tabela-passeios {
-    overflow-x: auto;
     background-color: var(--cor-branco);
 }
 
-.tabela-passeios h2 {
+.tabela-passeios > h2 {
     color: var(--cor-primaria);
+    text-align: center;
 }
 
+/* Tabelas, caso sejam utilizadas nessa seção */
 .tabela-passeios table {
     width: 100%;
     border-collapse: collapse;
@@ -453,7 +460,27 @@ button[type="submit"]:hover {
 }
 
 .cta-contato p {
-    margin-bottom: 20px;
+    max-width: 750px;
+    margin: 0 auto 20px;
+}
+
+.cta-contato a {
+    display: inline-block;
+    padding: 12px 24px;
+    color: var(--cor-destaque1);
+    background-color: var(--cor-destaque2);
+    border: 2px solid var(--cor-destaque2);
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.cta-contato a:hover,
+.cta-contato a:focus {
+    color: var(--cor-branco);
+    background-color: var(--cor-primaria);
+    border-color: var(--cor-primaria);
 }
 
 
@@ -548,7 +575,6 @@ button[type="submit"]:hover {
     resize: vertical;
 }
 
-/* Quadro ao redor das opções de assunto */
 .formulario fieldset {
     min-width: 0;
     margin: 10px 0;
@@ -650,7 +676,7 @@ button[type="submit"]:hover {
 
 
 /* ========================================
-   10. NEWSLETTER (SE A PÁGINA UTILIZAR)
+   10. NEWSLETTER
 ======================================== */
 
 .newsletter {
@@ -762,10 +788,7 @@ footer nav a:hover img {
         grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
-    .lista-passeios {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
+    .lista-passeios,
     .cartoes {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
@@ -916,3 +939,4 @@ footer nav a:hover img {
         font-size: 0.9rem;
     }
 }
+```
