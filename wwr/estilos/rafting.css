@@ -418,7 +418,10 @@ button[type="submit"]:hover {
 }
 
 .tabela-passeios {
-    background-color: var(--cor-branco);
+    background-color: var(--cor-fundo);
+    padding: 30px;
+    border-radius: 8px;
+    margin: 30px 0;
 }
 
 .tabela-passeios > h2 {
