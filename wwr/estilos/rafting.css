@@ -1,13 +1,17 @@
+```css
+/* =========================
+   VARIÁVEIS E CONFIGURAÇÕES
+   ========================= */
+
 :root {
-    --cor-primaria: #006d77;
+    --cor-primaria: #00545c;
     --cor-secundaria: #83c5be;
     --cor-destaque1: #023047;
     --cor-destaque2: #ffb703;
     --cor-fundo: #edf6f9;
     --cor-branco: #ffffff;
-
-    --cor-hero: rgba(2, 48, 71, 0.8);
-    --cor-artigo: rgba(255, 255, 255, 0.85);
+    --cor-hero: rgba(2, 48, 71, 0.85);
+    --cor-artigo: rgba(255, 255, 255, 0.94);
 
     --fonte-titulo: Georgia, "Times New Roman", serif;
     --fonte-body: Arial, Helvetica, sans-serif;
@@ -19,104 +23,164 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: var(--fonte-body);
     color: var(--cor-destaque1);
     background-color: var(--cor-fundo);
-    line-height: 1.5;
+    line-height: 1.6;
 }
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--fonte-titulo);
+    line-height: 1.3;
+}
+
+h2 {
+    color: var(--cor-destaque1);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+p {
+    margin-bottom: 12px;
+}
+
+a {
+    color: var(--cor-destaque1);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: 3px solid var(--cor-destaque2);
+    outline-offset: 3px;
+}
+
+/* =========================
+   ESTRUTURA GERAL
+   ========================= */
 
 header,
 main,
 footer {
-    width: 840px;
+    width: min(1100px, 100%);
     margin: 0 auto;
 }
+
+main {
+    background-color: var(--cor-fundo);
+}
+
+/* =========================
+   CABEÇALHO E NAVEGAÇÃO
+   ========================= */
 
 header {
     display: grid;
     grid-template-columns: 150px 1fr;
     align-items: center;
+    gap: 15px;
+    padding: 12px 20px;
     background-color: var(--cor-primaria);
-    padding: 10px;
     color: var(--cor-branco);
 }
 
 header > img {
+    display: block;
     width: 120px;
     height: 80px;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 header nav {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
 }
 
 header nav a {
+    display: inline-block;
+    padding: 10px 12px;
     color: var(--cor-branco);
     text-decoration: none;
     font-weight: bold;
-    padding: 10px 15px;
 }
 
 header nav a:hover {
-    color: var(--cor-branco);
     text-decoration: underline;
     text-decoration-color: var(--cor-destaque2);
+    text-decoration-thickness: 3px;
 }
+
+/* =========================
+   IMAGEM PRINCIPAL / HERO
+   ========================= */
 
 .hero {
     position: relative;
+    overflow: hidden;
 }
 
 .hero > img {
     display: block;
     width: 100%;
-    height: auto;
+    height: 450px;
+    object-fit: cover;
 }
 
 .hero h1 {
     position: absolute;
-    top: 20px;
+    top: 25px;
     left: 0;
     width: 100%;
-    padding: 16px;
-
-    font-family: var(--fonte-titulo);
-    text-align: center;
-
+    padding: 18px;
     background-color: var(--cor-hero);
     color: var(--cor-branco);
+    text-align: center;
+    font-size: clamp(1.6rem, 4vw, 2.5rem);
 }
 
 .hero article {
     position: absolute;
-    left: 30px;
-    bottom: 30px;
-
+    left: 5%;
+    bottom: 25px;
     width: 80%;
     padding: 20px;
-
     background-color: var(--cor-artigo);
     color: var(--cor-destaque1);
+    border-radius: 5px;
 }
 
 .hero article img {
+    float: left;
     width: 120px;
     height: 100px;
     object-fit: cover;
-    float: left;
-    margin-right: 15px;
+    margin: 0 15px 10px 0;
 }
 
-h2 {
-    font-family: var(--fonte-titulo);
-    color: var(--cor-destaque1);
-    text-align: center;
-    margin-bottom: 20px;
+.hero article p {
+    margin-bottom: 0;
 }
+
+/* =========================
+   PÁGINA SOBRE NÓS
+   ========================= */
 
 section {
     margin-top: 20px;
@@ -127,7 +191,7 @@ section {
 .historia {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 30px;
+    gap: 25px;
     align-items: center;
 }
 
@@ -140,8 +204,9 @@ section {
 }
 
 .historia img {
+    display: block;
     width: 100%;
-    height: 200px;
+    height: 250px;
     object-fit: cover;
 }
 
@@ -151,19 +216,21 @@ section {
 
 .galeria {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(5, minmax(0, 1fr));
     gap: 15px;
 }
 
 .galeria figure {
+    min-width: 0;
     text-align: center;
 }
 
 .galeria img {
     display: block;
     width: 100%;
-    height: 110px;
+    height: 130px;
     object-fit: cover;
+    border-radius: 4px;
 }
 
 .galeria figcaption {
@@ -172,6 +239,176 @@ section {
     color: var(--cor-destaque1);
 }
 
+/* =========================
+   PÁGINA INICIAL DO RAFTING
+   ========================= */
+
+.newsletter {
+    padding: 30px;
+    background-color: var(--cor-branco);
+}
+
+.newsletter h2 {
+    margin-bottom: 10px;
+}
+
+.newsletter form {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    align-items: end;
+    gap: 15px;
+}
+
+.newsletter label,
+.formulario label {
+    display: block;
+    font-weight: bold;
+}
+
+.newsletter input,
+.formulario input,
+.formulario select,
+.formulario textarea {
+    width: 100%;
+    min-width: 0;
+    padding: 10px;
+    border: 2px solid var(--cor-destaque1);
+    border-radius: 4px;
+    background-color: var(--cor-branco);
+    color: var(--cor-destaque1);
+    font-family: var(--fonte-body);
+    font-size: 1rem;
+}
+
+.newsletter button,
+.formulario button,
+.botao,
+a.botao {
+    display: inline-block;
+    width: fit-content;
+    padding: 12px 20px;
+    border: 2px solid var(--cor-destaque1);
+    border-radius: 4px;
+    background-color: var(--cor-destaque1);
+    color: var(--cor-branco);
+    font-family: var(--fonte-body);
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.newsletter button:hover,
+.formulario button:hover,
+.botao:hover,
+a.botao:hover {
+    background-color: var(--cor-primaria);
+    border-color: var(--cor-primaria);
+}
+
+.chamada {
+    padding: 35px 20px;
+    text-align: center;
+    background-color: var(--cor-secundaria);
+}
+
+.chamada p {
+    margin-bottom: 20px;
+}
+
+.destaques {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px;
+}
+
+.destaques article {
+    padding: 20px;
+    background-color: var(--cor-branco);
+    border-radius: 5px;
+}
+
+.destaques img {
+    display: block;
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.destaques h3 {
+    margin-bottom: 10px;
+    color: var(--cor-destaque1);
+}
+
+/* =========================
+   PÁGINA DE PASSEIOS
+   ========================= */
+
+.passeios-intro {
+    padding: 30px;
+    text-align: center;
+}
+
+.lista-passeios {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.passeio {
+    min-width: 0;
+    padding: 15px;
+    background-color: var(--cor-branco);
+    border-radius: 5px;
+}
+
+.passeio img {
+    display: block;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.passeio h2 {
+    font-size: 1.4rem;
+}
+
+.tabela-passeios {
+    width: 100%;
+    margin-top: 25px;
+    border-collapse: collapse;
+    background-color: var(--cor-branco);
+}
+
+.tabela-passeios caption {
+    padding: 12px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.tabela-passeios th,
+.tabela-passeios td {
+    padding: 12px;
+    border: 1px solid #8a9ba3;
+    text-align: left;
+}
+
+.tabela-passeios th {
+    background-color: var(--cor-destaque1);
+    color: var(--cor-branco);
+}
+
+.tabela-passeios tbody tr:nth-child(even) {
+    background-color: var(--cor-fundo);
+}
+
+.cta-contato {
+    margin-top: 25px;
+    text-align: center;
+}
 
 /* =========================
    PÁGINA FALE CONOSCO
@@ -183,20 +420,20 @@ section {
 
 .informacoes {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px;
     margin-bottom: 25px;
 }
 
 .informacoes div {
+    min-width: 0;
     padding: 20px;
     background-color: var(--cor-fundo);
 }
 
 .informacoes h3 {
-    font-family: var(--fonte-titulo);
-    color: var(--cor-destaque1);
     margin-bottom: 8px;
+    color: var(--cor-destaque1);
 }
 
 .informacoes p {
@@ -221,38 +458,40 @@ section {
 
 .formulario form {
     display: grid;
-    gap: 10px;
+    gap: 12px;
     max-width: 700px;
     margin: 0 auto;
 }
 
-.formulario label {
-    font-weight: bold;
-    color: var(--cor-destaque1);
-}
-
-.formulario input,
-.formulario select,
-.formulario textarea {
-    width: 100%;
-    padding: 10px;
-    border: 2px solid var(--cor-destaque1);
+.formulario fieldset {
+    min-width: 0;
+    padding: 15px;
+    border: 1px solid var(--cor-destaque1);
     border-radius: 4px;
-    background-color: var(--cor-branco);
-    color: var(--cor-destaque1);
-    font-family: var(--fonte-body);
-    font-size: 1rem;
 }
 
-.formulario textarea {
-    resize: vertical;
+.formulario legend {
+    padding: 0 6px;
+    font-weight: bold;
+}
+
+.formulario .opcao-radio {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 8px 0;
+    font-weight: normal;
+}
+
+.formulario .opcao-radio input {
+    width: auto;
 }
 
 .formulario .newsletter {
     display: flex;
     align-items: center;
     gap: 8px;
-    margin-top: 10px;
+    margin-top: 5px;
     font-weight: normal;
 }
 
@@ -260,23 +499,12 @@ section {
     width: auto;
 }
 
-.formulario button {
-    width: fit-content;
-    margin: 10px auto 0;
-    padding: 12px 25px;
-    border: 2px solid var(--cor-destaque1);
-    border-radius: 4px;
-    background-color: var(--cor-destaque1);
-    color: var(--cor-branco);
-    font-family: var(--fonte-body);
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
+.formulario textarea {
+    resize: vertical;
 }
 
-.formulario button:hover {
-    background-color: var(--cor-primaria);
-    border-color: var(--cor-primaria);
+.formulario button {
+    margin: 10px auto 0;
 }
 
 .equipe {
@@ -285,11 +513,12 @@ section {
 
 .equipe-galeria {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 25px;
 }
 
 .equipe-galeria figure {
+    min-width: 0;
     text-align: center;
 }
 
@@ -298,14 +527,13 @@ section {
     width: 100%;
     height: 200px;
     object-fit: cover;
+    margin-bottom: 10px;
 }
 
 .equipe-galeria figcaption {
-    padding-top: 10px;
     font-weight: bold;
     color: var(--cor-destaque1);
 }
-
 
 /* =========================
    RODAPÉ
@@ -315,10 +543,9 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
+    gap: 20px;
     margin-top: 20px;
     padding: 20px;
-
     background-color: var(--cor-destaque1);
     color: var(--cor-branco);
 }
@@ -327,20 +554,137 @@ footer p {
     margin: 0;
 }
 
+footer .socialmedia,
 footer .redes-sociais {
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    flex-shrink: 0;
     gap: 10px;
     margin-left: auto;
 }
 
+footer .socialmedia a,
 footer .redes-sociais a {
+    display: inline-flex;
+    align-items: center;
     text-decoration: none;
 }
 
+footer .socialmedia img,
 footer .redes-sociais img {
+    display: block;
     width: 35px;
     height: 35px;
     object-fit: contain;
 }
+
+/* =========================
+   RESPONSIVIDADE
+   ========================= */
+
+@media (max-width: 900px) {
+    header,
+    main,
+    footer {
+        width: 100%;
+    }
+
+    .galeria {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .lista-passeios {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .hero > img {
+        height: 400px;
+    }
+}
+
+@media (max-width: 600px) {
+    header {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        gap: 10px;
+    }
+
+    header nav {
+        justify-content: center;
+    }
+
+    header nav a {
+        padding: 8px;
+    }
+
+    .hero > img {
+        height: 300px;
+    }
+
+    .hero h1 {
+        top: 10px;
+        padding: 12px;
+    }
+
+    .hero article {
+        left: 5%;
+        bottom: 10px;
+        width: 90%;
+        padding: 12px;
+        font-size: 0.9rem;
+    }
+
+    .hero article img {
+        width: 85px;
+        height: 75px;
+        margin-right: 10px;
+    }
+
+    section,
+    .newsletter {
+        padding: 20px;
+    }
+
+    .historia,
+    .destaques,
+    .informacoes,
+    .lista-passeios,
+    .equipe-galeria {
+        grid-template-columns: 1fr;
+    }
+
+    .galeria {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .newsletter form {
+        grid-template-columns: 1fr;
+    }
+
+    .newsletter button {
+        width: 100%;
+    }
+
+    .tabela-passeios {
+        font-size: 0.85rem;
+    }
+
+    .tabela-passeios th,
+    .tabela-passeios td {
+        padding: 7px;
+        overflow-wrap: anywhere;
+    }
+
+    footer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    footer .socialmedia,
+    footer .redes-sociais {
+        justify-content: center;
+        margin-left: 0;
+    }
+}
+```
