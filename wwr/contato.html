@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -13,13 +14,11 @@
     <meta name="author" content="Luciane Zuse Matias">
 
     <link rel="stylesheet" href="estilos/rafting.css">
-    
 </head>
 
 <body>
 
     <header>
-
         <img src="imagens/rafting-hero.png"
             alt="Logo da empresa Aventuras nas Águas">
 
@@ -29,21 +28,18 @@
             <a href="passeios.html">Passeios</a>
             <a href="contato.html">Fale Conosco</a>
         </nav>
-
     </header>
 
     <main>
 
         <div class="hero">
-
             <img src="imagens/rafting-hero.png"
                 alt="Grupo de pessoas praticando rafting em um rio">
 
-            <h1>Fale Conosco | Aventuras nas Águas</h1>
+            <h1>Fale Conosco</h1>
 
             <article>
-
-                <h2>Entre em contato</h2>
+                <h2>Estamos aqui para ajudar!</h2>
 
                 <img src="imagens/rafting-cliente.png"
                     alt="Cliente durante uma aventura de rafting">
@@ -51,22 +47,18 @@
                 <p>
                     Entre em contato com nossa equipe para saber mais sobre
                     nossos passeios, tirar dúvidas ou planejar sua próxima
-                    aventura.
+                    aventura. Será um prazer ajudar você!
                 </p>
-
             </article>
-
         </div>
 
         <section class="contato">
-
-            <h2>Entre em contato</h2>
+            <h2>Informações de contato</h2>
 
             <div class="informacoes">
 
                 <div>
                     <h3>Endereço</h3>
-
                     <p>Rua das Águas, 100</p>
                     <p>Florianópolis - SC</p>
                     <p>CEP 88000-000</p>
@@ -74,210 +66,152 @@
 
                 <div>
                     <h3>Telefone</h3>
-
                     <p>(48) 99999-9999</p>
 
                     <h3>E-mail</h3>
-
                     <p>contato@aventurasnasaguas.com</p>
                 </div>
 
             </div>
 
             <div class="mapa">
-
                 <iframe
                     src="https://www.google.com/maps?q=Florian%C3%B3polis%2C%20SC&output=embed"
                     width="840"
                     height="300"
-                    allowfullscreen=""
+                    style="border: 0;"
+                    allowfullscreen
                     loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade"
-                    title="Mapa da localização da Aventuras nas Águas">
+                    title="Mapa de Florianópolis, Santa Catarina">
                 </iframe>
-
             </div>
-
         </section>
 
         <section class="formulario">
-
             <h2>Envie uma mensagem</h2>
 
-            <form>
+            <form action="#" method="post">
 
-                <label for="nome">Nome:</label>
-
+                <label for="nome">Nome completo:</label>
                 <input type="text"
                     id="nome"
                     name="nome"
+                    autocomplete="name"
                     required>
 
-
                 <label for="email">Endereço de e-mail:</label>
-
                 <input type="email"
                     id="email"
                     name="email"
+                    autocomplete="email"
                     required>
 
-
                 <fieldset>
-
-                    <legend>Motivo do contato:</legend>
+                    <legend>Qual é o motivo do contato?</legend>
 
                     <label for="informacoes">
-
                         <input type="radio"
                             id="informacoes"
                             name="assunto"
                             value="informacoes"
                             required>
-
                         Informações sobre passeios
-
                     </label>
 
                     <label for="reserva">
-
                         <input type="radio"
                             id="reserva"
                             name="assunto"
                             value="reserva">
-
                         Reserva
-
                     </label>
 
                     <label for="duvida">
-
                         <input type="radio"
                             id="duvida"
                             name="assunto"
                             value="duvida">
-
                         Dúvida
-
                     </label>
-
                 </fieldset>
 
-
-                <label for="mensagem">Mensagem:</label>
-
+                <label for="mensagem">Sua mensagem:</label>
                 <textarea
                     id="mensagem"
                     name="mensagem"
                     rows="6"
                     required></textarea>
 
-
                 <label class="newsletter" for="newsletter">
-
                     <input type="checkbox"
                         id="newsletter"
                         name="newsletter"
                         value="sim">
 
                     Desejo receber novidades e informações sobre os próximos passeios.
-
                 </label>
 
-
                 <button type="submit">
-                    Enviar mensagem
+                    Enviar minha mensagem
                 </button>
 
             </form>
-
         </section>
 
         <section class="equipe">
-
             <h2>Nossa equipe</h2>
 
             <div class="equipe-galeria">
 
                 <figure>
-
                     <img src="imagens/instrutor.png"
                         alt="Instrutor de rafting da Aventuras nas Águas">
-
-                    <figcaption>
-                        Instrutor de Rafting
-                    </figcaption>
-
+                    <figcaption>Instrutor de Rafting</figcaption>
                 </figure>
 
-
                 <figure>
-
                     <img src="imagens/guia.png"
                         alt="Guia de aventura da Aventuras nas Águas">
-
-                    <figcaption>
-                        Guia de Aventura
-                    </figcaption>
-
+                    <figcaption>Guia de Aventura</figcaption>
                 </figure>
 
-
                 <figure>
-
                     <img src="imagens/atendimento.png"
-                        alt="Atendente da Aventuras nas Águas">
-
-                    <figcaption>
-                        Atendimento ao Cliente
-                    </figcaption>
-
+                        alt="Profissional de atendimento ao cliente da Aventuras nas Águas">
+                    <figcaption>Atendimento ao Cliente</figcaption>
                 </figure>
 
             </div>
-
         </section>
 
     </main>
 
     <footer>
+        <p>© 2026 Aventuras nas Águas | Luciane Zuse Matias</p>
 
-        <p>
-            © 2026 Aventuras nas Águas | Luciane Zuse Matias
-        </p>
-
-        <nav class="redes-sociais">
-
-            <a href="https://facebook.com"
+        <nav class="socialmedia">
+            <a href="https://www.facebook.com/"
                 target="_blank"
                 rel="noopener noreferrer">
-
-                <img src="imagens/facebook.png"
-                    alt="Facebook">
-
+                <img src="imagens/facebook.png" alt="Facebook">
             </a>
 
-            <a href="https://linkedin.com"
+            <a href="https://www.linkedin.com/"
                 target="_blank"
                 rel="noopener noreferrer">
-
-                <img src="imagens/linkedin.png"
-                    alt="LinkedIn">
-
+                <img src="imagens/linkedin.png" alt="LinkedIn">
             </a>
 
-            <a href="https://instagram.com"
+            <a href="https://www.instagram.com/"
                 target="_blank"
                 rel="noopener noreferrer">
-
-                <img src="imagens/instagram.png"
-                    alt="Instagram">
-
+                <img src="imagens/instagram.png" alt="Instagram">
             </a>
-
         </nav>
-
     </footer>
 
 </body>
 
 </html>
+```
