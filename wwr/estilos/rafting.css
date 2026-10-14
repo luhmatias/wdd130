@@ -1,7 +1,7 @@
 
-/* =========================
-   VARIÁVEIS E CONFIGURAÇÕES
-   ========================= */
+/* ========================================
+   1. VARIÁVEIS E CONFIGURAÇÕES GERAIS
+======================================== */
 
 :root {
     --cor-primaria: #00545c;
@@ -10,6 +10,7 @@
     --cor-destaque2: #ffb703;
     --cor-fundo: #edf6f9;
     --cor-branco: #ffffff;
+
     --cor-hero: rgba(2, 48, 71, 0.85);
     --cor-artigo: rgba(255, 255, 255, 0.94);
 
@@ -17,14 +18,10 @@
     --fonte-body: Arial, Helvetica, sans-serif;
 }
 
-/* =========================
-   CONFIGURAÇÕES GERAIS
-   ========================= */
-
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 html {
@@ -33,14 +30,10 @@ html {
 
 body {
     font-family: var(--fonte-body);
+    font-size: 16px;
+    line-height: 1.6;
     color: var(--cor-destaque1);
     background-color: var(--cor-fundo);
-    line-height: 1.6;
-}
-
-img {
-    max-width: 100%;
-    height: auto;
 }
 
 h1,
@@ -48,38 +41,44 @@ h2,
 h3 {
     font-family: var(--fonte-titulo);
     line-height: 1.3;
+    margin-bottom: 15px;
+}
+
+h1 {
+    font-size: 2.4rem;
 }
 
 h2 {
-    color: var(--cor-destaque1);
-    text-align: center;
-    margin-bottom: 20px;
+    font-size: 1.8rem;
 }
 
 h3 {
-    color: var(--cor-destaque1);
+    font-size: 1.3rem;
 }
 
 p {
-    margin-bottom: 12px;
+    margin-bottom: 15px;
 }
 
 a {
+    color: var(--cor-primaria);
+}
+
+a:hover {
     color: var(--cor-destaque1);
 }
 
-a:focus-visible,
-button:focus-visible,
-input:focus-visible,
-textarea:focus-visible,
-select:focus-visible {
-    outline: 3px solid var(--cor-destaque2);
-    outline-offset: 3px;
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
 }
 
-/* =========================
-   ESTRUTURA GERAL
-   ========================= */
+button,
+input,
+textarea {
+    font: inherit;
+}
 
 header,
 main,
@@ -89,31 +88,32 @@ footer {
 }
 
 main {
-    background-color: var(--cor-fundo);
+    background-color: transparent;
 }
 
 section {
     margin-top: 20px;
     padding: 30px;
     background-color: var(--cor-branco);
+    border-radius: 8px;
 }
 
-/* =========================
-   CABEÇALHO E NAVEGAÇÃO
-   ========================= */
+
+/* ========================================
+   2. CABEÇALHO E NAVEGAÇÃO
+======================================== */
 
 header {
     display: grid;
     grid-template-columns: 150px 1fr;
     align-items: center;
-    gap: 15px;
-    padding: 12px 20px;
+    gap: 20px;
+    padding: 15px 25px;
     background-color: var(--cor-primaria);
     color: var(--cor-branco);
 }
 
 header > img {
-    display: block;
     width: 120px;
     height: 80px;
     object-fit: contain;
@@ -121,37 +121,40 @@ header > img {
 
 header nav {
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-end;
     align-items: center;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 10px 20px;
 }
 
 header nav a {
-    display: inline-block;
-    padding: 10px 12px;
     color: var(--cor-branco);
     text-decoration: none;
     font-weight: bold;
+    padding: 8px 0;
+    border-bottom: 2px solid transparent;
 }
 
-header nav a:hover {
-    text-decoration: underline;
-    text-decoration-color: var(--cor-destaque2);
-    text-decoration-thickness: 3px;
+header nav a:hover,
+header nav a:focus {
+    color: var(--cor-destaque2);
+    border-bottom-color: var(--cor-destaque2);
 }
 
-/* =========================
-   IMAGEM PRINCIPAL / HERO
-   ========================= */
+
+/* ========================================
+   3. BANNER PRINCIPAL / HERO
+======================================== */
 
 .hero {
     position: relative;
+    min-height: 350px;
     overflow: hidden;
+    background-color: var(--cor-destaque1);
+    border-radius: 8px;
 }
 
 .hero > img {
-    display: block;
     width: 100%;
     height: 450px;
     object-fit: cover;
@@ -160,138 +163,92 @@ header nav a:hover {
 .hero h1 {
     position: absolute;
     top: 25px;
-    left: 0;
-    z-index: 2;
-    width: 100%;
-    padding: 18px;
-    background-color: var(--cor-hero);
+    left: 5%;
+    max-width: 90%;
+    padding: 15px 25px;
     color: var(--cor-branco);
-    text-align: center;
-    font-size: clamp(1.6rem, 4vw, 2.5rem);
+    background-color: var(--cor-hero);
+    border-radius: 5px;
 }
 
 .hero article {
     position: absolute;
-    left: 5%;
     bottom: 25px;
-    z-index: 1;
-    width: 80%;
+    left: 5%;
+    width: 90%;
     padding: 20px;
-    background-color: var(--cor-artigo);
     color: var(--cor-destaque1);
-    border-radius: 5px;
-}
-
-.hero article h2 {
-    text-align: left;
-    margin-bottom: 10px;
+    background-color: var(--cor-artigo);
+    border-radius: 8px;
 }
 
 .hero article img {
-    float: left;
+    float: right;
     width: 120px;
     height: 100px;
+    margin: 0 0 12px 18px;
     object-fit: cover;
-    margin: 0 15px 10px 0;
+    border-radius: 5px;
 }
 
 .hero article p {
     margin-bottom: 0;
 }
 
-/* =========================
-   PÁGINA SOBRE NÓS
-   ========================= */
 
-.historia {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 25px;
-    align-items: center;
-}
-
-.historia h2 {
-    grid-column: 1 / -1;
-}
-
-.historia p {
-    margin: 0;
-}
-
-.historia img {
-    display: block;
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-}
-
-.aventuras {
-    background-color: var(--cor-secundaria);
-}
-
-.galeria {
-    display: grid;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-    gap: 15px;
-}
-
-.galeria figure {
-    min-width: 0;
-    text-align: center;
-}
-
-.galeria img {
-    display: block;
-    width: 100%;
-    height: 130px;
-    object-fit: cover;
-    border-radius: 4px;
-}
-
-.galeria figcaption {
-    padding-top: 8px;
-    font-weight: bold;
-    color: var(--cor-destaque1);
-}
-
-/* =========================
-   PÁGINA INICIAL DO RAFTING
-   ========================= */
+/* ========================================
+   4. PÁGINA INICIAL
+======================================== */
 
 .apresentacao {
-    text-align: center;
+    padding: 35px;
+    background-color: var(--cor-branco);
+}
+
+.apresentacao h2 {
+    color: var(--cor-primaria);
 }
 
 .apresentacao p {
-    max-width: 800px;
-    margin: 0 auto 12px;
+    max-width: 850px;
 }
 
 .destaques {
-    background-color: var(--cor-fundo);
+    background-color: var(--cor-secundaria);
 }
 
 .destaques > h2 {
-    margin-bottom: 25px;
+    text-align: center;
+    color: var(--cor-destaque1);
 }
 
 .cartoes {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 20px;
+    gap: 22px;
+    margin-top: 25px;
 }
 
 .cartoes article,
 .destaques article {
-    min-width: 0;
     padding: 20px;
     background-color: var(--cor-branco);
+    border-radius: 8px;
+    box-shadow: 0 3px 8px rgba(2, 48, 71, 0.12);
+}
+
+.cartoes img,
+.destaques article img {
+    width: 100%;
+    height: 180px;
+    margin-bottom: 15px;
+    object-fit: cover;
     border-radius: 5px;
 }
 
 .cartoes h3,
 .destaques h3 {
-    margin-bottom: 10px;
+    color: var(--cor-primaria);
 }
 
 .cartoes p,
@@ -299,72 +256,405 @@ header nav a:hover {
     margin-bottom: 0;
 }
 
-.destaques img {
-    display: block;
-    width: 100%;
-    height: 240px;
-    object-fit: cover;
-    margin-bottom: 15px;
+.chamada {
+    text-align: center;
+    padding: 35px;
+    background-color: var(--cor-destaque1);
+    color: var(--cor-branco);
 }
 
-.chamada {
-    padding: 35px 20px;
-    text-align: center;
-    background-color: var(--cor-secundaria);
+.chamada h2 {
+    color: var(--cor-branco);
 }
 
 .chamada p {
-    margin-bottom: 20px;
+    max-width: 750px;
+    margin: 0 auto 20px;
 }
 
-/* =========================
-   BOTÕES
-   ========================= */
-
-.newsletter button,
-.formulario button,
+.chamada a,
 .botao,
-a.botao {
+button[type="submit"] {
     display: inline-block;
-    width: fit-content;
-    max-width: 100%;
-    padding: 12px 20px;
-    border: 2px solid var(--cor-destaque1);
-    border-radius: 4px;
-    background-color: var(--cor-destaque1);
-    color: var(--cor-branco);
-    font-family: var(--fonte-body);
-    font-size: 1rem;
-    font-weight: bold;
-    text-align: center;
+    padding: 12px 24px;
+    color: var(--cor-destaque1);
+    background-color: var(--cor-destaque2);
+    border: 2px solid var(--cor-destaque2);
+    border-radius: 5px;
     text-decoration: none;
+    font-weight: bold;
     cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
 }
 
-.newsletter button:hover,
-.formulario button:hover,
+.chamada a:hover,
 .botao:hover,
-a.botao:hover {
+button[type="submit"]:hover {
+    color: var(--cor-branco);
     background-color: var(--cor-primaria);
     border-color: var(--cor-primaria);
 }
 
-/* =========================
-   NEWSLETTER
-   ========================= */
+
+/* ========================================
+   5. PÁGINA SOBRE NÓS
+======================================== */
+
+.historia {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 25px;
+    background-color: var(--cor-branco);
+}
+
+.historia h2 {
+    grid-column: 1 / -1;
+    color: var(--cor-primaria);
+}
+
+.historia p {
+    margin-bottom: 0;
+}
+
+.historia img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.aventuras {
+    background-color: var(--cor-secundaria);
+}
+
+.aventuras h2 {
+    text-align: center;
+    color: var(--cor-destaque1);
+}
+
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.galeria figure {
+    min-width: 0;
+}
+
+.galeria img {
+    width: 100%;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.galeria figcaption {
+    padding: 8px 2px;
+    text-align: center;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+
+/* ========================================
+   6. PÁGINA PASSEIOS
+======================================== */
+
+.passeios-intro {
+    background-color: var(--cor-branco);
+}
+
+.passeios-intro h2 {
+    color: var(--cor-primaria);
+}
+
+.lista-passeios {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+    background-color: transparent;
+}
+
+.passeio {
+    padding: 20px;
+    background-color: var(--cor-branco);
+    border-radius: 8px;
+    box-shadow: 0 3px 8px rgba(2, 48, 71, 0.12);
+}
+
+.passeio img {
+    width: 100%;
+    height: 200px;
+    margin-bottom: 15px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.passeio h2,
+.passeio h3 {
+    color: var(--cor-primaria);
+}
+
+.passeio p {
+    margin-bottom: 12px;
+}
+
+.tabela-passeios {
+    overflow-x: auto;
+    background-color: var(--cor-branco);
+}
+
+.tabela-passeios h2 {
+    color: var(--cor-primaria);
+}
+
+.tabela-passeios table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.tabela-passeios th,
+.tabela-passeios td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid var(--cor-secundaria);
+}
+
+.tabela-passeios th {
+    color: var(--cor-branco);
+    background-color: var(--cor-primaria);
+}
+
+.tabela-passeios tbody tr:nth-child(even) {
+    background-color: var(--cor-fundo);
+}
+
+.cta-contato {
+    text-align: center;
+    background-color: var(--cor-destaque1);
+    color: var(--cor-branco);
+}
+
+.cta-contato h2 {
+    color: var(--cor-branco);
+}
+
+.cta-contato p {
+    margin-bottom: 20px;
+}
+
+
+/* ========================================
+   7. PÁGINA FALE CONOSCO
+======================================== */
+
+.contato {
+    background-color: var(--cor-branco);
+}
+
+.contato h2 {
+    color: var(--cor-primaria);
+}
+
+.informacoes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    background-color: var(--cor-branco);
+}
+
+.informacoes h2 {
+    grid-column: 1 / -1;
+}
+
+.informacoes p {
+    overflow-wrap: anywhere;
+}
+
+.informacoes a {
+    color: var(--cor-primaria);
+}
+
+.mapa {
+    min-width: 0;
+}
+
+.mapa iframe {
+    width: 100%;
+    height: 300px;
+    border: 0;
+    border-radius: 8px;
+}
+
+
+/* ========================================
+   8. FORMULÁRIO DE CONTATO
+======================================== */
+
+.formulario {
+    background-color: var(--cor-branco);
+}
+
+.formulario h2 {
+    color: var(--cor-primaria);
+}
+
+.formulario form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+}
+
+.formulario label {
+    display: block;
+    font-weight: bold;
+}
+
+.formulario input[type="text"],
+.formulario input[type="email"],
+.formulario input[type="tel"],
+.formulario textarea {
+    display: block;
+    width: 100%;
+    margin-top: 6px;
+    padding: 12px;
+    color: var(--cor-destaque1);
+    background-color: var(--cor-branco);
+    border: 1px solid #8aabb0;
+    border-radius: 5px;
+}
+
+.formulario input:focus,
+.formulario textarea:focus {
+    outline: 2px solid var(--cor-primaria);
+    outline-offset: 2px;
+}
+
+.formulario textarea {
+    min-height: 140px;
+    resize: vertical;
+}
+
+/* Quadro ao redor das opções de assunto */
+.formulario fieldset {
+    min-width: 0;
+    margin: 10px 0;
+    padding: 18px 20px;
+    background-color: var(--cor-fundo);
+    border: 2px solid var(--cor-secundaria);
+    border-radius: 8px;
+}
+
+.formulario legend {
+    padding: 0 10px;
+    color: var(--cor-primaria);
+    font-weight: bold;
+}
+
+.formulario fieldset label,
+.formulario .opcao-radio {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0;
+    font-weight: normal;
+}
+
+.formulario input[type="radio"] {
+    flex: 0 0 auto;
+    width: auto;
+    margin: 0;
+    accent-color: var(--cor-primaria);
+}
+
+.formulario input[type="checkbox"] {
+    width: auto;
+    margin-right: 8px;
+    accent-color: var(--cor-primaria);
+}
+
+.formulario label.newsletter {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 0;
+    background: transparent;
+    font-weight: normal;
+}
+
+.formulario label.newsletter input[type="checkbox"] {
+    flex: 0 0 auto;
+    margin-top: 6px;
+}
+
+.formulario button[type="submit"] {
+    justify-self: start;
+    margin-top: 5px;
+}
+
+
+/* ========================================
+   9. EQUIPE
+======================================== */
+
+.equipe {
+    background-color: var(--cor-secundaria);
+}
+
+.equipe h2 {
+    text-align: center;
+    color: var(--cor-destaque1);
+}
+
+.equipe-galeria {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+    margin-top: 25px;
+}
+
+.equipe-galeria figure {
+    padding: 18px;
+    text-align: center;
+    background-color: var(--cor-branco);
+    border-radius: 8px;
+    box-shadow: 0 3px 8px rgba(2, 48, 71, 0.12);
+}
+
+.equipe-galeria img {
+    width: 100%;
+    height: 230px;
+    margin-bottom: 15px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 5px;
+}
+
+.equipe-galeria figcaption {
+    color: var(--cor-primaria);
+    font-weight: bold;
+}
+
+
+/* ========================================
+   10. NEWSLETTER (SE A PÁGINA UTILIZAR)
+======================================== */
 
 .newsletter {
-    padding: 30px;
     background-color: var(--cor-branco);
 }
 
 .newsletter h2 {
-    margin-bottom: 10px;
+    color: var(--cor-primaria);
 }
 
 .newsletter form {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto;
+    grid-template-columns: 1fr 1fr auto;
     align-items: end;
     gap: 15px;
 }
@@ -374,290 +664,89 @@ a.botao:hover {
     font-weight: bold;
 }
 
-.newsletter input,
-.formulario input,
-.formulario select,
-.formulario textarea {
+.newsletter input[type="text"],
+.newsletter input[type="email"] {
     width: 100%;
-    min-width: 0;
-    padding: 10px;
-    border: 2px solid var(--cor-destaque1);
-    border-radius: 4px;
-    background-color: var(--cor-branco);
-    color: var(--cor-destaque1);
-    font-family: var(--fonte-body);
-    font-size: 1rem;
-}
-
-.newsletter input[type="checkbox"],
-.formulario input[type="checkbox"],
-.formulario input[type="radio"] {
-    width: auto;
-}
-
-/* =========================
-   PÁGINA DE PASSEIOS
-   ========================= */
-
-.passeios-intro {
-    padding: 30px;
-    text-align: center;
-}
-
-.lista-passeios {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 20px;
-}
-
-.passeio {
-    min-width: 0;
-    padding: 15px;
-    background-color: var(--cor-branco);
+    margin-top: 6px;
+    padding: 12px;
+    border: 1px solid #8aabb0;
     border-radius: 5px;
 }
 
-.passeio img {
-    display: block;
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    margin-bottom: 15px;
-}
-
-.passeio h2 {
-    font-size: 1.4rem;
-}
-
-.tabela-passeios {
-    width: 100%;
-    margin-top: 25px;
-    border-collapse: collapse;
-    background-color: var(--cor-branco);
-}
-
-.tabela-passeios caption {
-    padding: 12px;
-    font-weight: bold;
-    text-align: left;
-}
-
-.tabela-passeios th,
-.tabela-passeios td {
-    padding: 12px;
-    border: 1px solid #8a9ba3;
-    text-align: left;
-}
-
-.tabela-passeios th {
-    background-color: var(--cor-destaque1);
-    color: var(--cor-branco);
-}
-
-.tabela-passeios tbody tr:nth-child(even) {
-    background-color: var(--cor-fundo);
-}
-
-.cta-contato {
-    margin-top: 25px;
-    text-align: center;
-}
-
-/* =========================
-   PÁGINA FALE CONOSCO
-   ========================= */
-
-.contato {
-    background-color: var(--cor-branco);
-}
-
-.informacoes {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 25px;
-    margin-bottom: 25px;
-}
-
-.informacoes > div {
-    min-width: 0;
-    padding: 20px;
-    background-color: var(--cor-fundo);
-}
-
-.informacoes h3 {
-    margin-bottom: 8px;
-}
-
-.informacoes p {
-    margin-bottom: 5px;
-    overflow-wrap: anywhere;
-}
-
-.mapa {
-    width: 100%;
-    margin-top: 20px;
-}
-
-.mapa iframe {
-    display: block;
-    width: 100%;
-    height: 300px;
-    border: 0;
-}
-
-.formulario {
-    background-color: var(--cor-secundaria);
-}
-
-.formulario form {
-    display: grid;
-    gap: 12px;
-    max-width: 700px;
-    margin: 0 auto;
-}
-
-.formulario label {
-    display: block;
-    font-weight: bold;
-}
-
-.formulario fieldset {
-    min-width: 0;
-    padding: 15px;
-    border: 1px solid var(--cor-destaque1);
-    border-radius: 4px;
-}
-
-.formulario legend {
-    padding: 0 6px;
-    font-weight: bold;
-}
-
-.formulario fieldset label,
-.formulario .opcao-radio {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin: 8px 0;
-    font-weight: normal;
-}
-
-.formulario fieldset input[type="radio"],
-.formulario .opcao-radio input {
-    flex: 0 0 auto;
-    width: auto;
-    margin: 0;
-}
-
-.formulario .newsletter {
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
-    margin-top: 5px;
-    padding: 0;
-    background: transparent;
-    font-weight: normal;
-}
-
-.formulario .newsletter input[type="checkbox"] {
-    flex: 0 0 auto;
-    width: auto;
-    margin: 5px 0 0;
-}
-
-.formulario textarea {
-    resize: vertical;
-}
-
-.formulario button {
-    margin: 10px auto 0;
-}
-
-/* =========================
-   EQUIPE
-   ========================= */
-
-.equipe {
-    background-color: var(--cor-branco);
-}
-
-.equipe-galeria {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 25px;
-}
-
-.equipe-galeria figure {
-    min-width: 0;
-    text-align: center;
-}
-
-.equipe-galeria img {
-    display: block;
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    margin-bottom: 10px;
-}
-
-.equipe-galeria figcaption {
-    font-weight: bold;
+.newsletter button {
+    padding: 12px 20px;
     color: var(--cor-destaque1);
+    background-color: var(--cor-destaque2);
+    border: 2px solid var(--cor-destaque2);
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
 }
 
-/* =========================
-   RODAPÉ
-   ========================= */
+
+/* ========================================
+   11. RODAPÉ
+======================================== */
 
 footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
     gap: 20px;
     margin-top: 20px;
-    padding: 20px;
-    background-color: var(--cor-destaque1);
+    padding: 25px;
     color: var(--cor-branco);
+    background-color: var(--cor-primaria);
 }
 
 footer p {
-    margin: 0;
+    margin-bottom: 0;
 }
 
-footer .socialmedia,
-footer .redes-sociais {
+footer nav.socialmedia,
+footer nav.redes-sociais {
     display: flex;
-    justify-content: flex-end;
     align-items: center;
-    flex-shrink: 0;
-    gap: 10px;
-    margin-left: auto;
+    gap: 15px;
 }
 
-footer .socialmedia a,
-footer .redes-sociais a {
-    display: inline-flex;
-    align-items: center;
-    text-decoration: none;
+footer nav a {
+    display: inline-block;
 }
 
-footer .socialmedia img,
-footer .redes-sociais img {
-    display: block;
+footer nav img {
     width: 35px;
     height: 35px;
     object-fit: contain;
 }
 
-/* =========================
-   TABLETS
-   ========================= */
+footer nav a:hover img {
+    opacity: 0.75;
+}
 
-@media (max-width: 900px) {
+
+/* ========================================
+   12. TABLETS
+======================================== */
+
+@media screen and (max-width: 900px) {
     header,
     main,
     footer {
         width: 100%;
+    }
+
+    header {
+        padding: 15px 20px;
+    }
+
+    header nav {
+        gap: 8px 14px;
+    }
+
+    .hero > img {
+        height: 400px;
     }
 
     .galeria {
@@ -668,28 +757,52 @@ footer .redes-sociais img {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .hero > img {
-        height: 400px;
+    .cartoes {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 
-/* =========================
-   CELULARES
-   ========================= */
 
-@media (max-width: 600px) {
+/* ========================================
+   13. CELULARES
+======================================== */
+
+@media screen and (max-width: 600px) {
+    body {
+        font-size: 15px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
     header {
         grid-template-columns: 1fr;
         justify-items: center;
         gap: 10px;
+        padding: 15px;
+    }
+
+    header > img {
+        width: 110px;
+        height: 75px;
     }
 
     header nav {
         justify-content: center;
+        gap: 8px 15px;
     }
 
     header nav a {
-        padding: 8px;
+        font-size: 0.95rem;
+    }
+
+    .hero {
+        min-height: 0;
     }
 
     .hero > img {
@@ -697,31 +810,30 @@ footer .redes-sociais img {
     }
 
     .hero h1 {
-        top: 10px;
-        padding: 12px;
-        font-size: 1.6rem;
+        top: 15px;
+        left: 4%;
+        max-width: 92%;
+        padding: 10px 14px;
+        font-size: 1.5rem;
     }
 
     .hero article {
-        left: 5%;
-        bottom: 10px;
-        width: 90%;
+        bottom: 12px;
+        left: 4%;
+        width: 92%;
+        max-height: 62%;
+        overflow: auto;
         padding: 12px;
-        font-size: 0.9rem;
-    }
-
-    .hero article h2 {
-        font-size: 1.15rem;
     }
 
     .hero article img {
         width: 85px;
         height: 75px;
-        margin-right: 10px;
+        margin-left: 10px;
     }
 
-    section,
-    .newsletter {
+    section {
+        margin-top: 15px;
         padding: 20px;
     }
 
@@ -733,7 +845,8 @@ footer .redes-sociais img {
         grid-template-columns: 1fr;
     }
 
-    .historia h2 {
+    .historia h2,
+    .informacoes h2 {
         grid-column: auto;
     }
 
@@ -741,32 +854,56 @@ footer .redes-sociais img {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
+    .galeria img {
+        height: 120px;
+    }
+
+    .cartoes img {
+        height: 190px;
+    }
+
+    .passeio img {
+        height: 190px;
+    }
+
+    .equipe-galeria img {
+        height: 250px;
+    }
+
     .newsletter form {
         grid-template-columns: 1fr;
     }
 
-    .newsletter button {
-        width: 100%;
+    .formulario fieldset {
+        padding: 15px;
     }
 
-    .tabela-passeios {
-        font-size: 0.85rem;
+    .formulario fieldset label {
+        align-items: flex-start;
     }
 
-    .tabela-passeios th,
-    .tabela-passeios td {
-        padding: 7px;
-        overflow-wrap: anywhere;
+    .formulario input[type="radio"] {
+        margin-top: 5px;
     }
 
     footer {
         flex-direction: column;
         text-align: center;
+        padding: 20px;
     }
 
-    footer .socialmedia,
-    footer .redes-sociais {
+    footer nav.socialmedia,
+    footer nav.redes-sociais {
         justify-content: center;
-        margin-left: 0;
+    }
+
+    .tabela-passeios {
+        padding: 15px;
+    }
+
+    .tabela-passeios th,
+    .tabela-passeios td {
+        padding: 8px;
+        font-size: 0.9rem;
     }
 }
