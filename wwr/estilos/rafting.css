@@ -490,6 +490,69 @@ button[type="submit"]:hover {
 }
 
 
+
+/* ========================================
+   TABELA-RESUMO DOS PASSEIOS
+======================================== */
+
+.tabela-resumo {
+    background-color: var(--cor-branco);
+    padding: 30px;
+    margin-top: 20px;
+    border-radius: 8px;
+}
+
+.tabela-resumo h2 {
+    color: var(--cor-primaria);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.tabela-resumo table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--cor-branco);
+}
+
+.tabela-resumo th,
+.tabela-resumo td {
+    padding: 14px 16px;
+    text-align: left;
+    border: 1px solid var(--cor-secundaria);
+}
+
+.tabela-resumo th {
+    color: var(--cor-branco);
+    background-color: var(--cor-primaria);
+}
+
+.tabela-resumo tbody tr:nth-child(even) {
+    background-color: var(--cor-fundo);
+}
+
+.tabela-resumo tbody tr:hover {
+    background-color: var(--cor-secundaria);
+}
+
+/* Ajustes para celulares */
+@media screen and (max-width: 600px) {
+    .tabela-resumo {
+        padding: 15px;
+        overflow-x: auto;
+    }
+
+    .tabela-resumo table {
+        min-width: 420px;
+    }
+
+    .tabela-resumo th,
+    .tabela-resumo td {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+}
+
+
 /* ========================================
    7. PÁGINA FALE CONOSCO
 ======================================== */
